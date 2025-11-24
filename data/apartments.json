@@ -1,0 +1,88 @@
+{
+    "apartments": [
+      {
+        "id": 1,
+        "title": "Modern 2BR Downtown Loft",
+        "price": 2200,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "sqft": 950,
+        "address": "123 King St W, Toronto, ON",
+        "city": "Toronto",
+        "lat": 43.6532,
+        "lng": -79.3832,
+        "images": [
+          "img/property-1.jpg"
+        ],
+        "url": "https://www.apartments.com/example1",
+        "source": "apartments.com",
+        "description": "Beautiful modern loft with floor-to-ceiling windows, hardwood floors, and updated kitchen. Walking distance to subway and restaurants.",
+        "amenities": ["Gym", "Parking", "Laundry"],
+        "available_date": "2024-12-01",
+        "pet_friendly": true,
+        "distance_to_work": 2.5,
+        "distance_to_gym": 0.8,
+        "commute_time": 15,
+        "match_score": 92
+      },
+      {
+        "id": 2,
+        "title": "Cozy 1BR Near Subway",
+        "price": 1800,
+        "bedrooms": 1,
+        "bathrooms": 1,
+        "sqft": 650,
+        "address": "456 Queen St E, Toronto, ON",
+        "city": "Toronto",
+        "lat": 43.6629,
+        "lng": -79.3957,
+        "images": [
+          "img/property-2.jpg"
+        ],
+        "url": "https://www.craigslist.org/example2",
+        "source": "craigslist",
+        "description": "Perfect starter apartment! Bright and clean with updated bathroom. Steps to TTC. Quiet building with great neighbors.",
+        "amenities": ["Laundry", "Storage"],
+        "available_date": "2024-11-25",
+        "pet_friendly": false,
+        "distance_to_work": 4.2,
+        "distance_to_gym": 1.5,
+        "commute_time": 25,
+        "match_score": 78
+      },
+      {
+        "id": 3,
+        "title": "Spacious 3BR Family Home",
+        "price": 3200,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "sqft": 1400,
+        "address": "789 Bloor St W, Toronto, ON",
+        "city": "Toronto",
+        "lat": 43.6426,
+        "lng": -79.4010,
+        "images": [
+          "img/property-3.jpg"
+        ],
+        "url": "https://www.zillow.com/example3",
+        "source": "zillow",
+        "description": "Large family apartment with 3 bedrooms, 2 full baths, in-unit laundry, and balcony. Great school district. Parking included!",
+        "amenities": ["Gym", "Parking", "Laundry", "Balcony", "Pool"],
+        "available_date": "2024-12-15",
+        "pet_friendly": true,
+        "distance_to_work": 6.8,
+        "distance_to_gym": 3.2,
+        "commute_time": 35,
+        "match_score": 65
+      }
+    ],
+    "last_updated": "2024-11-23T21:30:00Z",
+    "total_count": 3,
+    "user_preferences": {
+      "max_price": 2500,
+      "min_bedrooms": 1,
+      "max_bedrooms": 2,
+      "max_distance_to_work": 5,
+      "transport_mode": "subway"
+    }
+  }
