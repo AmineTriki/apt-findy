@@ -1,0 +1,65 @@
+{
+  "city": "Montreal",
+  "work_address": "1190 Avenue des Canadiens-de-Montréal, Suite 500, Montréal, QC H3B 0M7, Canada",
+  "work_location": {
+    "name": "La Tour Deloitte",
+    "address": "1190 Avenue des Canadiens-de-Montréal, Suite 500, Montréal, QC H3B 0M7, Canada",
+    "metro_stations": ["Bonaventure", "Lucien-L'Allier", "Peel", "McGill"]
+  },
+  "target_neighborhoods": [
+    "Downtown (Ville-Marie core: Ste-Catherine / René-Lévesque corridor)",
+    "Griffintown",
+    "Old Port / Old Montreal",
+    "Quartier des Spectacles / Place-des-Arts",
+    "Quartier International (1085 Rue Saint-Alexandre area)"
+  ],
+  "important_locations": [
+    {
+      "name": "Friends Area",
+      "address": "Ste-Catherine / René-Lévesque / Mackay, Montreal, QC"
+    },
+    {
+      "name": "Quartier International",
+      "address": "1085 Rue Saint-Alexandre, Montreal, QC"
+    }
+  ],
+  "budget": {
+    "min": 1600,
+    "max": 2600
+  },
+  "bedrooms": {
+    "min": 1,
+    "max": 2
+  },
+  "commute_preferences": {
+    "walking_distance_max": 20,
+    "metro_walk_max": 4,
+    "metro_stops_max": 2,
+    "transport_mode": "mixed"
+  },
+  "must_have": {
+    "furnished": true,
+    "in_unit_laundry": true,
+    "dishwasher": true,
+    "modern_renovated": true
+  },
+  "nice_to_have": [
+    "gym",
+    "balcony",
+    "utilities_included",
+    "parking",
+    "rooftop",
+    "pool",
+    "concierge",
+    "lounge",
+    "coworking"
+  ],
+  "pet_friendly": false,
+  "move_in_window": {
+    "earliest": "2026-01-01",
+    "latest": "2026-02-15",
+    "preferred_start": "2026-02-01",
+    "preferred_end": "2026-02-14"
+  }
+}
+
