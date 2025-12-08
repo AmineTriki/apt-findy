@@ -1,242 +1,363 @@
 """
 Scraper for Rent it Furnished (Montreal)
 Target: https://rentitfurnished.com/montreal/listings
+Uses Selenium for JavaScript-rendered content
 """
-import requests
+import undetected_chromedriver as uc
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 from typing import List, Dict, Optional
+import time
 import json
 import re
 from scraper_utils import (
-    clean_price, clean_address, extract_bedrooms, extract_bathrooms, extract_sqft,
-    create_session_with_retries, make_request_with_retry, page_delay
+    clean_price, clean_address, extract_bedrooms, extract_bathrooms, extract_sqft
 )
 import logging
 
 logger = logging.getLogger(__name__)
 
 
-def scrape_rentitfurnished(max_pages: int = 5) -> List[Dict]:
+def extract_price_rentit(text):
+    """Extract price from text like '$2,100/month' or '$2100'"""
+    if not text:
+        return None
+    match = re.search(r'\$?([\d,]+)', text.replace(',', ''))
+    if match:
+        try:
+            return int(match.group(1))
+        except:
+            return None
+    return None
+
+
+def extract_bedrooms_rentit(text):
+    """Extract bedrooms from text like '2 Bedroom' or '1BR'"""
+    if not text:
+        return None
+    text = text.lower()
+    if 'studio' in text:
+        return 0
+    match = re.search(r'(\d+)\s*(bed|br)', text)
+    if match:
+        return int(match.group(1))
+    return None
+
+
+def scrape_rentitfurnished(max_pages: int = 1) -> List[Dict]:
     """
-    Scrape furnished apartment listings from Rent it Furnished Montreal.
+    Scrape furnished apartment listings from Rent it Furnished Montreal using Selenium.
+    
+    Note: This site uses JavaScript rendering, so Selenium is required.
+    Only scrapes 1 page (max_pages parameter ignored) due to single-page React app.
     
     Args:
-        max_pages: Maximum number of pages to scrape (default: 5)
+        max_pages: Ignored - always scrapes first page only (default: 1)
     
     Returns:
         List of apartment dictionaries
     """
     apartments = []
-    base_url = "https://rentitfurnished.com"
-    search_url = f"{base_url}/montreal/listings"
     
-    session = create_session_with_retries()
+    print("Setting up Selenium browser...")
     
-    for page in range(1, max_pages + 1):
-        try:
-            if page == 1:
-                url = search_url
-            else:
-                url = f"{search_url}?page={page}"
-            
-            print(f"  Scraping Rent it Furnished page {page}...")
-            
-            response = make_request_with_retry(session, url)
-            if not response:
-                print(f"  Failed to fetch page {page}")
-                break
-            
-            soup = BeautifulSoup(response.content, 'lxml')
-            
-            # Try multiple selectors for Rent it Furnished
-            listings = []
-            selectors = [
-                ('div', {'class': 'listing'}),
-                ('article', {'class': 'property'}),
-                ('div', {'class': 'property-card'}),
-                ('div', {'class': 'listing-card'}),
-            ]
-            
-            for tag, attrs in selectors:
-                listings = soup.find_all(tag, attrs)
-                if listings:
-                    print(f"    Found {len(listings)} listings using {tag}")
-                    break
-            
-            if not listings:
-                # Try finding any divs with listing-like content
-                all_divs = soup.find_all('div', class_=True)
-                listings = [d for d in all_divs if any(x in str(d.get('class', [])).lower() for x in ['listing', 'property', 'card'])]
-                if listings:
-                    print(f"    Found {len(listings)} potential listings")
-            
-            if not listings:
-                print(f"  No listings found on page {page}")
-                # Save HTML for debugging
-                with open(f"debug_rentitfurnished_page{page}.html", 'w', encoding='utf-8') as f:
-                    f.write(soup.prettify())
-                break
-            
-            for listing in listings:
-                try:
-                    apt = parse_rentitfurnished_listing(listing, base_url)
-                    if apt:
-                        apartments.append(apt)
-                except Exception as e:
-                    print(f"  Error parsing listing: {e}")
-                    continue
-            
-            # Delay between pages
-            if page < max_pages:
-                page_delay(5.0, 10.0)
-            
-        except Exception as e:
-            logger.error(f"  Error processing page {page}: {e}")
-            continue
+    # Setup undetected Chrome options
+    options = uc.ChromeOptions()
+    options.add_argument('--headless=new')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-dev-shm-usage')
+    options.add_argument('--disable-blink-features=AutomationControlled')
+    options.add_argument('--window-size=1920,1080')
     
-    session.close()
-    print(f"  Scraped {len(apartments)} apartments from Rent it Furnished")
-    return apartments
-
-
-def parse_rentitfurnished_listing(listing, base_url: str) -> Optional[Dict]:
-    """
-    Parse a single Rent it Furnished listing.
+    driver = None
     
-    Args:
-        listing: BeautifulSoup element containing listing data
-        base_url: Base URL for constructing full URLs
-    
-    Returns:
-        Apartment dictionary or None if parsing fails
-    """
     try:
-        # Extract title
-        title_elem = listing.find('h2') or listing.find('h3') or listing.find('a', class_='title')
-        if not title_elem:
-            return None
+        print("Starting Chrome driver...")
+        driver = None
         
-        title = title_elem.get_text(strip=True)
-        if not title:
-            return None
+        # Strategy 1: Try undetected_chromedriver with auto-version detection
+        try:
+            driver = uc.Chrome(options=options, version_main=None, use_subprocess=True)
+            driver.set_page_load_timeout(60)
+            print("  ✓ Chrome started with undetected_chromedriver")
+        except Exception as uc_error:
+            error_str = str(uc_error)
+            print(f"  ⚠️ undetected_chromedriver failed: {error_str[:150]}")
+            
+            # Strategy 2: Try WebDriverManager as fallback (auto-downloads matching ChromeDriver)
+            try:
+                print("  Attempting WebDriverManager fallback...")
+                from selenium import webdriver
+                from selenium.webdriver.chrome.service import Service
+                from webdriver_manager.chrome import ChromeDriverManager
+                from selenium.webdriver.chrome.options import Options as ChromeOptions
+                
+                # Create Chrome options
+                chrome_options = ChromeOptions()
+                chrome_options.add_argument('--headless=new')
+                chrome_options.add_argument('--no-sandbox')
+                chrome_options.add_argument('--disable-dev-shm-usage')
+                chrome_options.add_argument('--disable-blink-features=AutomationControlled')
+                chrome_options.add_argument('--window-size=1920,1080')
+                
+                # Use WebDriverManager to auto-download matching ChromeDriver
+                service = Service(ChromeDriverManager().install())
+                driver = webdriver.Chrome(service=service, options=chrome_options)
+                driver.set_page_load_timeout(60)
+                print("  ✓ Chrome started with WebDriverManager")
+            except Exception as wdm_error:
+                print(f"  ⚠️ WebDriverManager failed: {str(wdm_error)[:150]}")
+                
+                # Strategy 3: Try forcing undetected_chromedriver to download new version
+                try:
+                    print("  Attempting to force ChromeDriver download...")
+                    import os
+                    import shutil
+                    # Clear any cached ChromeDriver
+                    cache_dir = os.path.expanduser("~/.undetected_chromedriver")
+                    if os.path.exists(cache_dir):
+                        try:
+                            shutil.rmtree(cache_dir)
+                            print("  Cleared ChromeDriver cache")
+                        except:
+                            pass
+                    
+                    # Try again with fresh download
+                    driver = uc.Chrome(options=options, version_main=None, use_subprocess=True)
+                    driver.set_page_load_timeout(60)
+                    print("  ✓ Chrome started after cache clear")
+                except Exception as final_error:
+                    print(f"  ✗ All Chrome startup methods failed: {str(final_error)[:150]}")
+                    print("  Skipping Rent it Furnished (Chrome/Selenium unavailable)")
+                    return []
         
-        # Extract URL
-        url_elem = listing.find('a', href=True)
-        if url_elem:
-            url = url_elem['href']
-            if url.startswith('/'):
-                url = base_url + url
-        else:
-            url = ""
+        if not driver:
+            print("  ✗ Could not start Chrome driver")
+            return []
         
-        # Extract price
-        price_elem = listing.find('span', class_='price') or listing.find('div', class_='price')
-        price_str = price_elem.get_text(strip=True) if price_elem else ""
-        price = clean_price(price_str)
+        url = "https://rentitfurnished.com/montreal/listings"
+        print(f"Loading {url}...")
+        driver.get(url)
         
-        # Extract address
-        address_elem = listing.find('div', class_='address') or listing.find('span', class_='location')
-        address = address_elem.get_text(strip=True) if address_elem else ""
-        address = clean_address(address)
-        if not address:
-            address = "Montreal, QC"
+        # Wait for page to load - try multiple possible selectors
+        print("Waiting for listings to load...")
+        try:
+            # Wait up to 20 seconds for listings to appear
+            WebDriverWait(driver, 20).until(
+                lambda d: d.find_elements(By.CLASS_NAME, "listing-card") or
+                         d.find_elements(By.CLASS_NAME, "property-card") or
+                         d.find_elements(By.CLASS_NAME, "rental-listing") or
+                         len(d.find_elements(By.TAG_NAME, "article")) > 0
+            )
+            print("Listings loaded!")
+        except:
+            print("Timeout waiting for listings. Trying anyway...")
         
-        # Extract description
-        desc_elem = listing.find('div', class_='description') or listing.find('p', class_='description')
-        description = desc_elem.get_text(strip=True) if desc_elem else ""
+        # Extra wait for JavaScript to finish
+        time.sleep(5)
         
-        # Extract bedrooms, bathrooms, sqft from description or title
-        details_text = (title + " " + description).lower()
+        # Scroll to load more listings (many React sites use lazy loading)
+        print("Scrolling to load more listings...")
+        for i in range(3):
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            time.sleep(2)
         
-        bedrooms = extract_bedrooms(details_text)
-        bathrooms = extract_bathrooms(details_text)
-        sqft = extract_sqft(details_text)
+        # Get page source after JavaScript renders
+        html = driver.page_source
+        soup = BeautifulSoup(html, 'html.parser')
         
-        # Extract image
-        img_elem = listing.find('img')
-        image_url = img_elem.get('src') or img_elem.get('data-src') if img_elem else ""
-        if not image_url:
-            image_url = "img/property-1.jpg"
+        # Save HTML for debugging
+        try:
+            with open('debug_html/rentitfurnished_selenium.html', 'w', encoding='utf-8') as f:
+                f.write(soup.prettify())
+            print("Saved HTML to debug_html/rentitfurnished_selenium.html for inspection")
+        except:
+            pass
         
-        # Rent it Furnished specializes in furnished apartments
-        furnished = True  # All listings on this site are furnished
+        # Find listing containers using correct CSS class
+        listing_containers = soup.find_all('div', class_=re.compile(r'PropertyCard_property-card__', re.I))
         
-        # Check for amenities
-        amenities = []
-        desc_lower = description.lower()
-        amenity_keywords = {
-            'gym': 'Gym',
-            'fitness': 'Gym',
-            'parking': 'Parking',
-            'laundry': 'Laundry',
-            'dishwasher': 'Dishwasher',
-            'balcony': 'Balcony',
-            'terrace': 'Balcony',
-            'pool': 'Pool',
-            'concierge': 'Concierge',
-            'rooftop': 'Rooftop',
-            'lounge': 'Lounge'
-        }
+        print(f"Found {len(listing_containers)} listings")
         
-        for keyword, amenity_name in amenity_keywords.items():
-            if keyword in desc_lower and amenity_name not in amenities:
-                amenities.append(amenity_name)
+        if not listing_containers:
+            print("\nDEBUG: No listings found with PropertyCard selector.")
+            print("HTML structure sample (first 2000 chars):")
+            print(soup.prettify()[:2000])
+            print("\nPlease inspect debug_html/rentitfurnished_selenium.html to find correct selectors")
+            return apartments
         
-        # Check for in-unit laundry
-        in_unit_laundry = 'in-unit laundry' in desc_lower or 'in-suite laundry' in desc_lower
+        for listing in listing_containers[:50]:  # Limit to 50 per page
+            try:
+                apartment = {}
+                
+                # Extract title and URL from h2 > a
+                title_elem = listing.find('h2', class_=re.compile(r'PropertyCard_property-card--title__', re.I))
+                if title_elem:
+                    title_link = title_elem.find('a', href=True)
+                    if title_link:
+                        apartment['title'] = title_link.text.strip()
+                        href = title_link.get('href', '')
+                        apartment['url'] = f"https://rentitfurnished.com{href}" if href.startswith('/') else href
+                    else:
+                        apartment['title'] = title_elem.text.strip()
+                        apartment['url'] = None
+                else:
+                    apartment['title'] = None
+                    apartment['url'] = None
+                
+                # Extract price from h3 > a
+                price_elem = listing.find('h3', class_=re.compile(r'PropertyCard_property-card--price__', re.I))
+                if price_elem:
+                    price_link = price_elem.find('a')
+                    if price_link:
+                        price_text = price_link.text.strip()
+                        # Handle format like "$4,350 - Immediately"
+                        apartment['price'] = extract_price_rentit(price_text) or clean_price(price_text)
+                    else:
+                        price_text = price_elem.text.strip()
+                        apartment['price'] = extract_price_rentit(price_text) or clean_price(price_text)
+                else:
+                    apartment['price'] = None
+                
+                # Extract address
+                address_elem = listing.find('div', class_=re.compile(r'PropertyCard_property-card--address__', re.I))
+                apartment['address'] = address_elem.text.strip() if address_elem else "Montreal, QC"
+                apartment['address'] = clean_address(apartment['address'])
+                
+                # Extract bedrooms, bathrooms, sqft from subtitle ul > li
+                subtitle_elem = listing.find('div', class_=re.compile(r'PropertyCard_property-card--subtitle__', re.I))
+                apartment['bedrooms'] = None
+                apartment['bathrooms'] = None
+                apartment['sqft'] = None
+                
+                if subtitle_elem:
+                    list_items = subtitle_elem.find_all('li')
+                    for li in list_items:
+                        text = li.text.strip()
+                        text_lower = text.lower()
+                        # Extract bedrooms
+                        if 'bed' in text_lower and apartment['bedrooms'] is None:
+                            bed_match = re.search(r'(\d+)\s*beds?', text_lower)
+                            if bed_match:
+                                apartment['bedrooms'] = int(bed_match.group(1))
+                        # Extract bathrooms
+                        if 'bath' in text_lower and apartment['bathrooms'] is None:
+                            bath_match = re.search(r'([\d.]+)\s*baths?', text_lower)
+                            if bath_match:
+                                apartment['bathrooms'] = float(bath_match.group(1))
+                        # Extract sqft (handle "800 Sqft" format - case insensitive)
+                        if apartment['sqft'] is None:
+                            # Try multiple patterns for sqft
+                            sqft_match = re.search(r'(\d+)\s*sq\.?\s*ft', text_lower)
+                            if sqft_match:
+                                apartment['sqft'] = int(sqft_match.group(1))
+                            else:
+                                # Try simpler pattern without space
+                                sqft_match = re.search(r'(\d+)\s*sqft', text_lower)
+                                if sqft_match:
+                                    apartment['sqft'] = int(sqft_match.group(1))
+                                else:
+                                    # Try just number before "sq" (handles "800 Sqft")
+                                    sqft_match = re.search(r'(\d+)\s*sq', text_lower)
+                                    if sqft_match:
+                                        apartment['sqft'] = int(sqft_match.group(1))
+                
+                # Set defaults if not found
+                if apartment['bedrooms'] is None:
+                    apartment['bedrooms'] = extract_bedrooms(apartment['title'] or "")
+                if apartment['bathrooms'] is None:
+                    apartment['bathrooms'] = 1.0
+                if apartment['sqft'] is None:
+                    # Try extracting from subtitle text as fallback
+                    subtitle_text = subtitle_elem.get_text() if subtitle_elem else ""
+                    apartment['sqft'] = extract_sqft(subtitle_text) or extract_sqft(apartment['title'] or "")
+                
+                # Extract image (first image-gallery-image)
+                img_elem = listing.find('img', class_='image-gallery-image')
+                if img_elem:
+                    img_src = img_elem.get('src') or img_elem.get('data-src') or ''
+                    apartment['images'] = [img_src] if img_src else ['img/property-1.jpg']
+                else:
+                    apartment['images'] = ['img/property-1.jpg']
+                
+                # Extract description
+                desc_elem = listing.find('div', class_=re.compile(r'description', re.I))
+                apartment['description'] = desc_elem.text.strip() if desc_elem else ""
+                
+                # Extract amenities
+                amenities = []
+                desc_lower = apartment['description'].lower()
+                amenity_keywords = {
+                    'gym': 'Gym', 'fitness': 'Gym',
+                    'parking': 'Parking',
+                    'laundry': 'Laundry',
+                    'dishwasher': 'Dishwasher',
+                    'balcony': 'Balcony', 'terrace': 'Balcony',
+                    'pool': 'Pool',
+                }
+                
+                for keyword, amenity_name in amenity_keywords.items():
+                    if keyword in desc_lower and amenity_name not in amenities:
+                        amenities.append(amenity_name)
+                
+                # Check for in-unit laundry
+                in_unit_laundry = (
+                    'in-unit laundry' in desc_lower or
+                    'in-suite laundry' in desc_lower
+                )
+                
+                # Set defaults
+                apartment['furnished'] = True  # All listings on this site are furnished
+                apartment['source'] = 'rentitfurnished'
+                apartment['city'] = 'Montreal'
+                apartment['sqft'] = extract_sqft(apartment['description'])
+                apartment['amenities'] = amenities[:5]
+                apartment['available_date'] = None
+                apartment['pet_friendly'] = False
+                apartment['in_unit_laundry'] = in_unit_laundry
+                apartment['lat'] = None
+                apartment['lng'] = None
+                apartment['distance_to_work'] = None
+                apartment['commute_time'] = None
+                apartment['match_score'] = 0
+                
+                # Only add if we have minimum data
+                if apartment.get('title') or apartment.get('price'):
+                    apartments.append(apartment)
+                
+            except Exception as e:
+                logger.warning(f"  Error parsing listing: {e}")
+                continue
         
-        # Extract available date
-        available_date = None
-        date_patterns = [
-            r'available\s+(\d{1,2}[/-]\d{1,2}[/-]\d{2,4})',
-            r'disponible\s+(\d{1,2}[/-]\d{1,2}[/-]\d{2,4})',
-            r'(\d{4}-\d{2}-\d{2})',
-        ]
-        for pattern in date_patterns:
-            match = re.search(pattern, desc_lower)
-            if match:
-                available_date = match.group(1)
-                break
-        
-        apartment = {
-            "title": title,
-            "price": price,
-            "bedrooms": bedrooms,
-            "bathrooms": bathrooms or 1.0,
-            "sqft": sqft,
-            "address": address,
-            "city": "Montreal",
-            "images": [image_url],
-            "url": url,
-            "source": "rentitfurnished",
-            "description": description,
-            "amenities": amenities[:5],
-            "available_date": available_date,
-            "pet_friendly": False,  # Default, may need to check
-            "furnished": furnished,
-            "in_unit_laundry": in_unit_laundry,
-            # These will be calculated later
-            "lat": None,
-            "lng": None,
-            "distance_to_work": None,
-            "commute_time": None,
-            "match_score": 0
-        }
-        
-        return apartment
+        print(f"Successfully parsed {len(apartments)} apartments from Rent it Furnished")
         
     except Exception as e:
-        print(f"  Error parsing Rent it Furnished listing: {e}")
-        return None
+        logger.error(f"Error during scraping: {e}")
+        import traceback
+        traceback.print_exc()
+        # Return empty list on error so other scrapers can continue
+        return []
+    finally:
+        if driver:
+            try:
+                print("Closing browser...")
+                driver.quit()
+            except:
+                pass  # Ignore errors when closing
+    
+    return apartments
 
 
 if __name__ == "__main__":
     # Test scraper
-    print("Testing Rent it Furnished scraper...")
-    apartments = scrape_rentitfurnished(max_pages=2)
+    results = scrape_rentitfurnished(max_pages=1)
+    print(f"\nTotal apartments scraped: {len(results)}")
     
-    print(f"\nFound {len(apartments)} apartments")
-    if apartments:
-        print("\nFirst apartment:")
-        print(json.dumps(apartments[0], indent=2))
-
+    # Print first result
+    if results:
+        print("\nSample apartment:")
+        print(json.dumps(results[0], indent=2))
+    else:
+        print("\nNo results. Check debug_html/rentitfurnished_selenium.html to inspect HTML structure.")

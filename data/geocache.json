@@ -308,5 +308,685 @@
     "lat": 45.5031824,
     "lng": -73.5698065,
     "address": "Montreal, QC"
+  },
+  "10150 lajeunesse, montréal, qc, h3l 2e2": {
+    "lat": 45.5527904,
+    "lng": -73.6604077,
+    "address": "10150 Lajeunesse, Montréal, QC, H3L 2E2"
+  },
+  "46 rue rielle, montréal, qc h4g 2s5": {
+    "lat": 45.4597908,
+    "lng": -73.5642043,
+    "address": "46 Rue Rielle, Montréal, QC H4G 2S5"
+  },
+  "montreal, qc h2p 2h7, canada": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montreal, QC H2P 2H7, Canada"
+  },
+  "650 rue wellington, montreal, qc, h3c 1t3": {
+    "lat": 45.4984712,
+    "lng": -73.5550547,
+    "address": "650 rue Wellington, Montreal, QC, H3C 1T3"
+  },
+  "10200 avenue de bois-de-boulogne, montreal, qc": {
+    "lat": 45.5368053,
+    "lng": -73.6712415,
+    "address": "10200 Avenue de Bois-de-Boulogne, Montreal, QC"
+  },
+  "2125 rue ward, montreal, qc, h4m 1t6": {
+    "lat": 45.5003171,
+    "lng": -73.6770494,
+    "address": "2125 rue Ward, Montreal, QC, H4M 1T6"
+  },
+  "55 laframboise, saint-laurent, qc, h4n 1p2": {
+    "lat": 45.5311858,
+    "lng": -73.6780661,
+    "address": "55 Laframboise, Saint-Laurent, QC, H4N 1P2"
+  },
+  "maisonneuve blvd w, montreal, qc h3h 1k4": {
+    "lat": 45.5049293,
+    "lng": -73.570864,
+    "address": "Maisonneuve Blvd W, Montreal, QC H3H 1K4"
+  },
+  "montréal, qc h2p 2l2": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montréal, QC H2P 2L2"
+  },
+  "6650 10e avenue, montréal, qc h1y 2h9, canada": {
+    "lat": 45.5549371,
+    "lng": -73.5896053,
+    "address": "6650 10e Avenue, Montréal, QC H1Y 2H9, Canada"
+  },
+  "8480 jean-brillon, lasalle, qc, h8n 2p6": {
+    "lat": 45.4288637,
+    "lng": -73.6209228,
+    "address": "8480 Jean-Brillon, Lasalle, QC, H8N 2P6"
+  },
+  "4724 pierre-de-coubertin, montreal, qc, h1v 1a9": {
+    "lat": 45.5600593,
+    "lng": -73.5471601,
+    "address": "4724 Pierre-De-Coubertin, Montreal, QC, H1V 1A9"
+  },
+  "4140 chemin de la côte-sainte-catherine, montréal, qc, h3t 1e3": {
+    "lat": 45.4943597,
+    "lng": -73.6307622,
+    "address": "4140 Chemin de la Côte-Sainte-Catherine, Montréal, QC, H3T 1E3"
+  },
+  "montreal, qc h3t 1z7": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montreal, QC H3T 1Z7"
+  },
+  "2222 rue théodore, montréal, qc h1v 3c3": {
+    "lat": 45.558569,
+    "lng": -73.5392586,
+    "address": "2222 Rue Théodore, Montréal, QC H1V 3C3"
+  },
+  "5460 sunnybrooke avenue, côte-saint-luc, qc, h4x 2e3": {
+    "lat": 45.4595206,
+    "lng": -73.6588169,
+    "address": "5460 Sunnybrooke Avenue, Côte-Saint-Luc, QC, H4X 2E3"
+  },
+  "montréal, qc h1x 3n1": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montréal, QC H1X 3N1"
+  },
+  "3024 rue de cadillac, montréal, qc h1n 2v7": {
+    "lat": 45.5752703,
+    "lng": -73.5424643,
+    "address": "3024 Rue de Cadillac, Montréal, QC H1N 2V7"
+  },
+  "214 duluth, montréal, qc, h2w 1h6": {
+    "lat": 45.5188106,
+    "lng": -73.5773704,
+    "address": "214 Duluth, Montréal, QC, H2W 1H6"
+  },
+  "3435 rue messier, montréal, qc, h2k 3r6": {
+    "lat": 45.5335964,
+    "lng": -73.563053,
+    "address": "3435 rue Messier, Montréal, QC, H2K 3R6"
+  },
+  "17000 blvd pierrefonds, pierrefonds, qc, h9j 2v3": {
+    "lat": 45.4671866,
+    "lng": -73.8774463,
+    "address": "17000 Blvd Pierrefonds, Pierrefonds, QC, H9J 2V3"
+  },
+  "1569 rue st-hubert, montréal, qc, h2l 3z1": {
+    "lat": 45.5164841,
+    "lng": -73.5607613,
+    "address": "1569 rue St-Hubert, Montréal, QC, H2L 3Z1"
+  },
+  "12339 rue trefflé-berthiaume, montréal, qc, h1c 0e4": {
+    "lat": 45.6730257,
+    "lng": -73.5316965,
+    "address": "12339 Rue Trefflé-Berthiaume, Montréal, QC, H1C 0E4"
+  },
+  "7705 boulevard acadie, montreal, qc, h3n 2w1": {
+    "lat": 45.5261379,
+    "lng": -73.631766,
+    "address": "7705 Boulevard Acadie, Montreal, QC, H3N 2W1"
+  },
+  "5120 earnscliffe avenue, montréal, qc, h3x 1v4": {
+    "lat": 45.4819901,
+    "lng": -73.6312645,
+    "address": "5120 Earnscliffe Avenue, Montréal, QC, H3X 1V4"
+  },
+  "1461 rue du college, montréal, qc, h4l 2l8": {
+    "lat": 45.5101093,
+    "lng": -73.674889,
+    "address": "1461 rue du College, Montréal, QC, H4L 2L8"
+  },
+  "3655 avenue papineau, montréal, qc, h2k 4k1": {
+    "lat": 45.5297127,
+    "lng": -73.5670278,
+    "address": "3655 Avenue Papineau, Montréal, QC, H2K 4K1"
+  },
+  "490, avenue lake, dorval, qc, h9s 0c2": {
+    "lat": 45.4445908,
+    "lng": -73.7724731,
+    "address": "490, avenue Lake, Dorval, QC, H9S 0C2"
+  },
+  "2000 rue remembrance, lachine, qc": {
+    "lat": 45.4381156,
+    "lng": -73.6826201,
+    "address": "2000 Rue Remembrance, Lachine, QC"
+  },
+  "9675 av. papineau, montreal, qc, h2b 3c8": {
+    "lat": 45.5653908,
+    "lng": -73.6461701,
+    "address": "9675 Av. Papineau, Montreal, QC, H2B 3C8"
+  },
+  "montreal, qc h3h 2p5": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montreal, QC H3H 2P5"
+  },
+  "pl. de darlington, montréal, qc h3s 1l4": {
+    "lat": 45.5108041,
+    "lng": -73.626605,
+    "address": "Pl. de Darlington, Montréal, QC H3S 1L4"
+  },
+  "montreal, qc h4n 3g9": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montreal, QC H4N 3G9"
+  },
+  "6844 rue chambord, montréal, h2g 3c3": {
+    "lat": 45.5423462,
+    "lng": -73.6054877,
+    "address": "6844 Rue Chambord, Montréal, H2G 3C3"
+  },
+  "montreal, qc h2h 2a1": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montreal, QC H2H 2A1"
+  },
+  "1000 pratt, outremont, qc, h2v 2v3": {
+    "lat": 45.5158805,
+    "lng": -73.6245457,
+    "address": "1000 Pratt, Outremont, QC, H2V 2V3"
+  },
+  "9430, boul. lacordaire, saint-léonard, qc, h1r 3c0": {
+    "lat": 45.5996955,
+    "lng": -73.6129632,
+    "address": "9430, Boul. Lacordaire, Saint-Léonard, QC, H1R 3C0"
+  },
+  "lachine, qc h8s 2r9": {
+    "lat": 45.435114,
+    "lng": -73.6837987,
+    "address": "Lachine, QC H8S 2R9"
+  },
+  "11201 boul cavendish, saint-laurent": {
+    "lat": 45.5022953,
+    "lng": -73.7045175,
+    "address": "11201 Boul Cavendish, Saint-Laurent"
+  },
+  "375 rue de la concorde, ville-marie": {
+    "lat": 45.5075363,
+    "lng": -73.5706752,
+    "address": "375 Rue de la Concorde, Ville-Marie"
+  },
+  "295 rue de la montagne, le sud-ouest": {
+    "lat": 45.492267,
+    "lng": -73.5613092,
+    "address": "295 Rue de la Montagne, Le Sud-Ouest"
+  },
+  "1245 rue de bleury, ville-marie": {
+    "lat": 45.5041421,
+    "lng": -73.5624114,
+    "address": "1245 Rue de Bleury, Ville-Marie"
+  },
+  "1261 rue dorion, ville-marie": {
+    "lat": 45.5234344,
+    "lng": -73.550634,
+    "address": "1261 Rue Dorion, Ville-Marie"
+  },
+  "6590 desmarteau, mercier": {
+    "lat": 45.6116051,
+    "lng": -73.5446773,
+    "address": "6590 Desmarteau, Mercier"
+  },
+  "1300 boul. rené-lévesque, downtown montreal": {
+    "lat": 45.5052895,
+    "lng": -73.5640756,
+    "address": "1300 Boul. René-Lévesque, Downtown Montreal"
+  },
+  "204 ch cote st antoine, westmount": {
+    "lat": 45.4839112,
+    "lng": -73.6021094,
+    "address": "204 Ch Cote St Antoine, Westmount"
+  },
+  "1155 rue de la montagne, #1102, ville-marie": {
+    "lat": 45.4973871,
+    "lng": -73.5720438,
+    "address": "1155 Rue de la Montagne, #1102, Ville-Marie"
+  },
+  "montréal, qc h4c 1h9": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montréal, QC H4C 1H9"
+  },
+  "500 rue sauvé est, montreal, qc, h3l 0a9": {
+    "lat": 45.5511427,
+    "lng": -73.6550219,
+    "address": "500 rue Sauvé Est, Montreal, QC, H3L 0A9"
+  },
+  "5562 avenue decelles, montreal, qc": {
+    "lat": 45.4985531,
+    "lng": -73.623966,
+    "address": "5562 Avenue Decelles, Montreal, QC"
+  },
+  "975 du ruisseau, saint laurent, qc, h4l 1e2": {
+    "lat": 45.5273118,
+    "lng": -73.6904205,
+    "address": "975 du ruisseau, Saint Laurent, QC, H4L 1E2"
+  },
+  "sherbrooke street east, montreal, qc": {
+    "lat": 45.5160261,
+    "lng": -73.5678525,
+    "address": "Sherbrooke Street East, Montreal, QC"
+  },
+  "4970 avenue saint-kevin, montréal, qc": {
+    "lat": 45.488717,
+    "lng": -73.6328132,
+    "address": "4970 Avenue Saint-Kevin, Montréal, QC"
+  },
+  "2929 rue victoria, lachine, qc, h4r 2c4": {
+    "lat": 45.4358929,
+    "lng": -73.6889487,
+    "address": "2929 rue Victoria, Lachine, QC, H4R 2C4"
+  },
+  "3455 côte-des-neiges, montreal, qc, h3h 1t6": {
+    "lat": 45.4988496,
+    "lng": -73.6239598,
+    "address": "3455 Côte-des-Neiges, Montreal, QC, H3H 1T6"
+  },
+  "4300 metropolitain, montréal, qc, h1s 1a2": {
+    "lat": 45.5719528,
+    "lng": -73.5986322,
+    "address": "4300 metropolitain, Montréal, QC, H1S 1A2"
+  },
+  "3501 cote ste-catherine, montreal, qc, h3t 1z8": {
+    "lat": 45.4994313,
+    "lng": -73.6271383,
+    "address": "3501 Cote Ste-Catherine, Montreal, QC, H3T 1Z8"
+  },
+  "montreal, qc h1w 2s4": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montreal, QC H1W 2S4"
+  },
+  "6201 sherbrooke ouest, notre-dame-de-grâce, qc, h4b 1m5": {
+    "lat": 45.4666603,
+    "lng": -73.6239224,
+    "address": "6201 Sherbrooke Ouest, Notre-Dame-de-Grâce, QC, H4B 1M5"
+  },
+  "3460 rue durocher, montreal, qc, h2x 2e3": {
+    "lat": 45.507711,
+    "lng": -73.5739692,
+    "address": "3460 Rue Durocher, Montreal, QC, H2X 2E3"
+  },
+  "saint-léonard, qc h1s 0a1": {
+    "lat": 45.58671,
+    "lng": -73.5969488,
+    "address": "Saint-Léonard, QC H1S 0A1"
+  },
+  "montréal, qc h2w 2k2": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montréal, QC H2W 2K2"
+  },
+  "montreal, qc, h2s 2n3": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montreal, QC, H2S 2N3"
+  },
+  "anjou, qc h1j 1j5": {
+    "lat": 45.6048982,
+    "lng": -73.5466723,
+    "address": "Anjou, QC H1J 1J5"
+  },
+  "2990 rue cousineau, montreal, qc": {
+    "lat": 45.5238311,
+    "lng": -73.7163957,
+    "address": "2990 Rue Cousineau, Montreal, QC"
+  },
+  "montreal, qc h2e 2j5": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montreal, QC H2E 2J5"
+  },
+  "montreal, qc h2w 2h4": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montreal, QC H2W 2H4"
+  },
+  "montreal, qc h3c 0n6": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montreal, QC H3C 0N6"
+  },
+  "montreal, qc h3c 0y9": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montreal, QC H3C 0Y9"
+  },
+  "400 rue inspecteur, montreal, qc": {
+    "lat": 45.4959415,
+    "lng": -73.5609149,
+    "address": "400 Rue Inspecteur, Montreal, QC"
+  },
+  "montreal, qc h3c 1l3": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montreal, QC H3C 1L3"
+  },
+  "montreal, qc h1w 2w9": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montreal, QC H1W 2W9"
+  },
+  "8498 st-andré, montréal, qc, h2p 1y8": {
+    "lat": 45.5486352,
+    "lng": -73.6319238,
+    "address": "8498 St-André, Montréal, QC, H2P 1Y8"
+  },
+  "235 sherbrooke st w, montréal, qc, h2x 1x8": {
+    "lat": 45.4713966,
+    "lng": -73.6141832,
+    "address": "235 Sherbrooke St W, Montréal, QC, H2X 1X8"
+  },
+  "8615 rue hochelaga, montreal, qc, h1l 2m5": {
+    "lat": 45.6004548,
+    "lng": -73.5207349,
+    "address": "8615 rue hochelaga, montreal, QC, H1L 2M5"
+  },
+  "1280 saint-marc, montréal, qc, h3h 2g1": {
+    "lat": 45.4924812,
+    "lng": -73.5802707,
+    "address": "1280 Saint-Marc, Montréal, QC, H3H 2G1"
+  },
+  "1255 rue de bullion, montréal, qc, h2x 0b9": {
+    "lat": 45.5111586,
+    "lng": -73.5623286,
+    "address": "1255 rue De Bullion, Montréal, QC, H2X 0B9"
+  },
+  "1011 blvd shevchenko, lasalle, qc, h8n 0h2": {
+    "lat": 45.4306497,
+    "lng": -73.6102605,
+    "address": "1011 blvd Shevchenko, LaSalle, QC, H8N 0H2"
+  },
+  "1420 rue crescent, montréal, qc, h3g 2b7": {
+    "lat": 45.4973346,
+    "lng": -73.5765213,
+    "address": "1420 rue Crescent, Montréal, QC, H3G 2B7"
+  },
+  "montréal, qc h4e 1l5": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montréal, QC H4E 1L5"
+  },
+  "98 av. windsor, montréal, qc h8r 1p7": {
+    "lat": 45.4445433,
+    "lng": -73.654119,
+    "address": "98 Av. Windsor, Montréal, QC H8R 1P7"
+  },
+  "375 rue de la concorde, montréal, qc h3a 1j2, montreal, qc": {
+    "lat": 45.5075363,
+    "lng": -73.5706752,
+    "address": "375 Rue de la Concorde, Montréal, QC H3A 1J2, Montreal, QC"
+  },
+  "1160 rue saint-mathieu, montréal, qc h3h 2p5, montreal, qc": {
+    "lat": 45.4923284,
+    "lng": -73.5768932,
+    "address": "1160 Rue Saint-Mathieu, Montréal, QC H3H 2P5, Montreal, QC"
+  },
+  "2061 rue stanley, montréal, qc h3a 1r7, montreal, qc": {
+    "lat": 45.5008234,
+    "lng": -73.5761731,
+    "address": "2061 Rue Stanley, Montréal, QC H3A 1R7, Montreal, QC"
+  },
+  "1240-1250 rue du fort, montréal, qc h3h 2b7, montreal, qc": {
+    "lat": 45.4909536,
+    "lng": -73.5804879,
+    "address": "1240-1250 Rue du Fort, Montréal, QC H3H 2B7, Montreal, QC"
+  },
+  "1445 rue stanley, montréal, qc h3a 3t1, montreal, qc": {
+    "lat": 45.4999716,
+    "lng": -73.5744605,
+    "address": "1445 Rue Stanley, Montréal, QC H3A 3T1, Montreal, QC"
+  },
+  "2025 rue peel, montréal, qc h3a 0h9, montreal, qc": {
+    "lat": 45.501323,
+    "lng": -73.5752049,
+    "address": "2025 Rue Peel, Montréal, QC H3A 0H9, Montreal, QC"
+  },
+  "1001 rue lucien-l'allier, montréal, qc h3g 0g7, montreal, qc": {
+    "lat": 45.494969,
+    "lng": -73.571566,
+    "address": "1001 Rue Lucien-L'allier, Montréal, QC H3G 0G7, Montreal, QC"
+  },
+  "1680 av lincoln, montréal, qc h3h 1g9, montreal, qc": {
+    "lat": 45.495225,
+    "lng": -73.5809894,
+    "address": "1680 Av Lincoln, Montréal, QC H3H 1G9, Montreal, QC"
+  },
+  "2011 av joly, montréal, qc h2x 3h1, montreal, qc": {
+    "lat": 45.515313,
+    "lng": -73.5661114,
+    "address": "2011 Av Joly, Montréal, QC H2X 3H1, Montreal, QC"
+  },
+  "3827 boul. saint-laurent, montréal, qc h2w 1x9, montreal, qc": {
+    "lat": 45.5157339,
+    "lng": -73.576227,
+    "address": "3827 Boul. Saint-Laurent, Montréal, QC H2W 1X9, Montreal, QC"
+  },
+  "5638 avenue du parc, montréal, qc, h2v 4h1": {
+    "lat": 45.5227006,
+    "lng": -73.603879,
+    "address": "5638 Avenue Du Parc, Montréal, QC, H2V 4H1"
+  },
+  "3421 durocher, montreal, qc, h2x 2b4": {
+    "lat": 45.5074499,
+    "lng": -73.5727501,
+    "address": "3421 Durocher, Montreal, QC, H2X 2B4"
+  },
+  "verdun, qc h4g 2y2": {
+    "lat": 45.4592869,
+    "lng": -73.5720103,
+    "address": "Verdun, QC H4G 2Y2"
+  },
+  "montreal, qc h2x 2g8": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montreal, QC H2X 2G8"
+  },
+  "3555, rue berri, montreal, qc, h2l 4g4": {
+    "lat": 45.5188831,
+    "lng": -73.5681054,
+    "address": "3555, rue Berri, Montreal, QC, H2L 4G4"
+  },
+  "lasalle, qc h8r 2z1": {
+    "lat": 45.4325141,
+    "lng": -73.6292667,
+    "address": "LaSalle, QC H8R 2Z1"
+  },
+  "montreal, qc h3h 2p1": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montreal, QC H3H 2P1"
+  },
+  "1211 rue berri, montreal, qc, h2l 0h6": {
+    "lat": 45.514261,
+    "lng": -73.5583057,
+    "address": "1211 rue Berri, Montreal, QC, H2L 0H6"
+  },
+  "135 place de la côte-vertu, saint laurent, qc, h4n 1g4": {
+    "lat": 45.5290385,
+    "lng": -73.6677657,
+    "address": "135 place de la Côte-Vertu, Saint Laurent, QC, H4N 1G4"
+  },
+  "175 deguire, montreal, qc, h4n 1p1": {
+    "lat": 45.5315365,
+    "lng": -73.6756865,
+    "address": "175 Deguire, Montreal, QC, H4N 1P1"
+  },
+  "montreal, qc h2c 2v2": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montreal, QC H2C 2V2"
+  },
+  "1566 rue saint-christophe, montreal, qc, h2l 3w8": {
+    "lat": 45.520866,
+    "lng": -73.5693672,
+    "address": "1566 rue Saint-Christophe, Montreal, QC, H2L 3W8"
+  },
+  "5199 sherbrooke est, montréal, qc, h1t 3x2": {
+    "lat": 45.5412823,
+    "lng": -73.5598633,
+    "address": "5199 Sherbrooke Est, Montréal, QC, H1T 3X2"
+  },
+  "1999 rue william, montreal, qc, h3j 1r9": {
+    "lat": 45.4861047,
+    "lng": -73.5686193,
+    "address": "1999 rue William, Montreal, QC, H3J 1R9"
+  },
+  "2744 rue rachel est, montreal, qc": {
+    "lat": 45.5388561,
+    "lng": -73.5614887,
+    "address": "2744 Rue Rachel Est, Montreal, QC"
+  },
+  "westmount, qc h3z 1j9": {
+    "lat": 45.4856917,
+    "lng": -73.596562,
+    "address": "Westmount, QC H3Z 1J9"
+  },
+  "3421 rue drummond, montreal, qc, h3g 1x7": {
+    "lat": 45.5009943,
+    "lng": -73.5786779,
+    "address": "3421 Rue Drummond, Montreal, QC, H3G 1X7"
+  },
+  "montreal, qc h3c 0t4, canada": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montreal, QC H3C 0T4, Canada"
+  },
+  "990 saint-françois-xavier, saint laurent, qc, h4l 5e7": {
+    "lat": 45.5155302,
+    "lng": -73.6804918,
+    "address": "990 Saint-François-Xavier, Saint Laurent, QC, H4L 5E7"
+  },
+  "605 rue fullum, montreal, qc, h2k 0g4": {
+    "lat": 45.5343953,
+    "lng": -73.5636254,
+    "address": "605 rue Fullum, Montreal, QC, H2K 0G4"
+  },
+  "1711 r. saint-denis, montréal, qc h2x 3k4": {
+    "lat": 45.5156443,
+    "lng": -73.5641931,
+    "address": "1711 R. Saint-Denis, Montréal, QC H2X 3K4"
+  },
+  "montreal, qc h4k 2n2": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montreal, QC H4K 2N2"
+  },
+  "7465 rue des écores, montreal, qc": {
+    "lat": 45.5544803,
+    "lng": -73.6073357,
+    "address": "7465 Rue des Écores, Montreal, QC"
+  },
+  "montréal-nord, qc h1h 4l1": {
+    "lat": 45.5938992,
+    "lng": -73.6376062,
+    "address": "Montréal-Nord, QC H1H 4L1"
+  },
+  "côte saint-luc, qc h4w 1s8": {
+    "lat": 45.4772716,
+    "lng": -73.6637524,
+    "address": "Côte Saint-Luc, QC H4W 1S8"
+  },
+  "2865 kent, montreal, qc, h3s 1m8": {
+    "lat": 45.5086247,
+    "lng": -73.6274179,
+    "address": "2865 Kent, Montreal, QC, H3S 1M8"
+  },
+  "2323 modugno, saint laurent, qc, h4r 1x5": {
+    "lat": 45.5075574,
+    "lng": -73.6982555,
+    "address": "2323 Modugno, Saint Laurent, QC, H4R 1X5"
+  },
+  "2940 rue cousineau, saint-laurent, qc": {
+    "lat": 45.5232503,
+    "lng": -73.7154708,
+    "address": "2940 Rue Cousineau, Saint-Laurent, QC"
+  },
+  "10296 rue albert ferland, montréal, qc h4n 2x8": {
+    "lat": 45.5347,
+    "lng": -73.6749434,
+    "address": "10296 Rue Albert Ferland, Montréal, QC H4N 2X8"
+  },
+  "1650 av. lincoln, montréal, qc h3h 1h1": {
+    "lat": 45.4955036,
+    "lng": -73.5806121,
+    "address": "1650 Av. Lincoln, Montréal, QC H3H 1H1"
+  },
+  "montreal, qc h4b 2x7": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montreal, QC H4B 2X7"
+  },
+  "1444 rue mackay, montréal, qc, h3g 2h9": {
+    "lat": 45.4961263,
+    "lng": -73.5783261,
+    "address": "1444 rue Mackay, Montréal, QC, H3G 2H9"
+  },
+  "montréal, qc h2r 2e8": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montréal, QC H2R 2E8"
+  },
+  "dollard-des ormeaux, qc h9b 2c8": {
+    "lat": 45.48423,
+    "lng": -73.8064547,
+    "address": "Dollard-Des Ormeaux, QC H9B 2C8"
+  },
+  "montreal, qc h1n 3l7": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montreal, QC H1N 3L7"
+  },
+  "montréal, qc h2l 2z7": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montréal, QC H2L 2Z7"
+  },
+  "9420 rue clément, lasalle, qc, h8r 0a6": {
+    "lat": 45.4339747,
+    "lng": -73.6504946,
+    "address": "9420 rue Clément, LaSalle, QC, H8R 0A6"
+  },
+  "2525 modugno, montreal, qc, h4r 1x6": {
+    "lat": 45.5069168,
+    "lng": -73.6990806,
+    "address": "2525 Modugno, Montreal, QC, H4R 1X6"
+  },
+  "montréal, qc h3c 1v8": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montréal, QC H3C 1V8"
+  },
+  "montréal, qc h1l 1p7": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montréal, QC H1L 1P7"
+  },
+  "montréal, qc h1l 1e8": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montréal, QC H1L 1E8"
+  },
+  "montreal, qc h3n 1b8": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montreal, QC H3N 1B8"
+  },
+  "1030 rue de bleury, ville-marie": {
+    "lat": 45.5039813,
+    "lng": -73.5625506,
+    "address": "1030 Rue de Bleury, Ville-Marie"
+  },
+  "2125 rue saint-marc, montréal, qc, h3h 2p1": {
+    "lat": 45.4939267,
+    "lng": -73.5819798,
+    "address": "2125 rue Saint-Marc, Montréal, QC, H3H 2P1"
+  },
+  "montréal, qc h2k 3x5": {
+    "lat": 45.5031824,
+    "lng": -73.5698065,
+    "address": "Montréal, QC H2K 3X5"
   }
 }

@@ -14,10 +14,15 @@ try:
 except ImportError:
     scrape_kijiji = None
 
-try:
-    from apartments_com_montreal import scrape_apartments_com_montreal
-except ImportError:
-    scrape_apartments_com_montreal = None
+# Apartments.com is currently blocked - skip for now
+# try:
+#     from apartments_com_montreal_selenium import scrape_apartments_com_montreal
+# except ImportError:
+#     try:
+#         from apartments_com_montreal import scrape_apartments_com_montreal
+#     except ImportError:
+#         scrape_apartments_com_montreal = None
+scrape_apartments_com_montreal = None  # Temporarily disabled due to blocking
 
 try:
     from rentitfurnished import scrape_rentitfurnished
@@ -170,10 +175,12 @@ def run_all_scrapers(city: str = "Montreal", max_pages_per_scraper: int = 3) -> 
     scraper_num += 1
     
     # Run Apartments.com Montreal scraper (Priority 2 - TIER 1)
+    # Note: Limited to 2 pages max due to timeout issues
     if scrape_apartments_com_montreal:
         try:
             print(f"\n[{scraper_num}/{total_scrapers}] Scraping Apartments.com Montreal...")
-            apts = scrape_apartments_com_montreal(max_pages=max_pages_per_scraper)
+            # Limit to 2 pages to avoid timeouts
+            apts = scrape_apartments_com_montreal(max_pages=min(2, max_pages_per_scraper))
             all_apartments.extend(apts)
             print(f"✓ Found {len(apts)} apartments from Apartments.com")
         except Exception as e:
